@@ -91,7 +91,7 @@ main {
   border-radius: 0;
   object-fit: cover;
   float: left;
-  margin: 0 24px 24px 0;
+  margin: 1.7rem 24px 24px 0;
   background: var(--bg-alt);
 }
 
