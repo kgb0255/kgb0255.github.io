@@ -69,7 +69,8 @@ for p in papers:
 
     items.append(
         f'    <li>\n'
-        f'      {author_str}. "{title}." <em>{journal}</em>, {year}.\n'
+        f'      {author_str}<br>\n'
+        f'      {title}. <em>{journal}</em>, {year}.\n'
         f'      <a href="{link}" target="_blank" rel="noopener">[link]</a>\n'
         f'    </li>'
     )
