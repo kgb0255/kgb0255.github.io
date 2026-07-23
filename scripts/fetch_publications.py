@@ -58,8 +58,8 @@ for p in papers:
     if len(formatted) <= 6:
         author_str = ", ".join(formatted)
     elif kwon_idx is not None and kwon_idx >= 6:
-        # Kwon would be cut off — show first author + Kwon + et al.
-        author_str = formatted[0] + ", " + formatted[kwon_idx] + ", et al."
+        # Kwon would be cut off — show first author + et al. with Kwon noted
+        author_str = formatted[0] + ", et al. (including " + formatted[kwon_idx] + ")"
     else:
         author_str = ", ".join(formatted[:6]) + ", et al."
     year = p.get("year", "")
