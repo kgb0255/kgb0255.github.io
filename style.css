@@ -99,7 +99,7 @@ h1 {
   font-family: var(--serif);
   font-size: 2rem;
   font-weight: normal;
-  margin-bottom: 24px;
+  margin: 0 0 24px;
   color: var(--text);
 }
 
