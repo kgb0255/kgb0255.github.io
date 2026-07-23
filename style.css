@@ -38,9 +38,9 @@ header {
 
 .header-inner {
   width: 100%;
-  padding: 20px 4%;
+  padding: 20px 0;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 25% 25% 30% 20%;
   align-items: center;
 }
 
@@ -49,6 +49,7 @@ header {
   align-items: baseline;
   gap: 10px;
   color: var(--text);
+  grid-column: 1;
   justify-self: center;
 }
 .site-title:hover { text-decoration: none; }
@@ -71,6 +72,8 @@ nav ul {
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
+
+nav { grid-column: 3; }
 
 nav a { color: var(--accent); font-weight: 600; }
 nav a:hover { color: var(--accent-dark); text-decoration: none; }
