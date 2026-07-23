@@ -35,15 +35,28 @@ r = requests.post(
 r.raise_for_status()
 papers = r.json()["response"]["docs"]
 
+def format_author(name):
+    """Convert 'Last, First' to 'First Last', bold if last name is Kwon."""
+    if ", " in name:
+        last, first = name.split(", ", 1)
+        formatted = f"{first} {last}"
+    else:
+        last, formatted = name, name
+    if last == "Kwon":
+        return f"<strong>{formatted}</strong>"
+    return formatted
+
+
 # Step 3: Build HTML list items
 items = []
 for p in papers:
     title = p.get("title", ["Untitled"])[0]
     authors = p.get("author", [])
-    if len(authors) > 6:
-        author_str = ", ".join(authors[:6]) + ", et al."
+    formatted = [format_author(a) for a in authors]
+    if len(formatted) > 6:
+        author_str = ", ".join(formatted[:6]) + ", et al."
     else:
-        author_str = ", ".join(authors)
+        author_str = ", ".join(formatted)
     year = p.get("year", "")
     journal = p.get("pub", "")
     doi_list = p.get("doi", [])
