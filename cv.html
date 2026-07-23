@@ -53,7 +53,12 @@
 </main>
 
 <footer>
-  &copy; 2026 James Kwon | Last updated on July 23
+  &copy; 2026 James Kwon | Last updated on <span id="last-updated"></span>
+  <script>
+    const d = new Date(document.lastModified);
+    const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    document.getElementById("last-updated").textContent = months[d.getMonth()] + " " + d.getDate();
+  </script>
 </footer>
 
 </body>
