@@ -225,6 +225,8 @@ footer {
 .card details > summary::-webkit-details-marker { display: none; }
 .card details > summary h3 { margin-bottom: 0; }
 .card details[open] > summary h3 { margin-bottom: 14px; }
+.card details > summary h3::before { content: "▶  "; font-size: 0.65em; vertical-align: middle; }
+.card details[open] > summary h3::before { content: "▼  "; }
 
 @media (max-width: 1060px) {
   .dir-tree { display: none; }
