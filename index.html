@@ -39,10 +39,17 @@
       else if (mins >= 720  && mins <= 1050) timeBased = "Good afternoon!";
       else if (mins >= 1051 && mins <= 1320) timeBased = "Good evening!";
       else                                   timeBased = "Zzz...";
-      var pool = [timeBased, "Welcome!", "Hello!", "Hello there!", "Hi!"];
-      // Pick deterministically by day-of-year so all visitors see the same greeting each day
-      var dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
-      document.getElementById("greeting").textContent = pool[dayOfYear % pool.length];
+      var g;
+      if (mins >= 270 && mins <= 1050) {
+        // Morning and afternoon: always time-based
+        g = timeBased;
+      } else {
+        // Evening and night: seed-based pick by day-of-year
+        var pool = [timeBased, "Welcome!", "Hello!", "Hello there!", "Hi!"];
+        var dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
+        g = pool[dayOfYear % pool.length];
+      }
+      document.getElementById("greeting").textContent = g;
     })();
   </script>
 
