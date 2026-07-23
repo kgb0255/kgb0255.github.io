@@ -26,7 +26,7 @@ r = requests.post(
     headers={**headers, "Content-Type": "big-query/csv"},
     params={
         "q": "*:*",
-        "fl": "title,author,year,pub,doi,bibcode",
+        "fl": "title,author,year,pub,doi,bibcode,identifier",
         "rows": 500,
         "sort": "date desc",
     },
@@ -59,19 +59,34 @@ for p in papers:
         author_str = ", ".join(formatted)
     year = p.get("year", "")
     journal = p.get("pub", "")
-    doi_list = p.get("doi", [])
     bibcode = p.get("bibcode", "")
+    identifiers = p.get("identifier", [])
 
-    if doi_list:
-        link = f"https://doi.org/{doi_list[0]}"
-    else:
-        link = f"https://ui.adsabs.harvard.edu/abs/{bibcode}"
+    ads_link = f"https://ui.adsabs.harvard.edu/abs/{bibcode}"
+
+    arxiv_id = next(
+        (i.replace("arXiv:", "") for i in identifiers if i.startswith("arXiv:")),
+        None,
+    )
+    arxiv_link = f"https://arxiv.org/abs/{arxiv_id}" if arxiv_id else None
+
+    icon_ads = (
+        f'<a href="{ads_link}" target="_blank" rel="noopener">'
+        f'<img src="assets/ads_partial_logo_dark_background.svg" '
+        f'alt="NASA ADS" style="height:16px; vertical-align:middle; margin-right:6px;"></a>'
+    )
+    icon_arxiv = (
+        f'<a href="{arxiv_link}" target="_blank" rel="noopener">'
+        f'<img src="assets/arxiv-logo.svg" '
+        f'alt="arXiv" style="height:16px; vertical-align:middle;"></a>'
+        if arxiv_link else ""
+    )
 
     items.append(
         f'    <li>\n'
         f'      {author_str}<br>\n'
-        f'      {title}. <em>{journal}</em>, {year}.\n'
-        f'      <a href="{link}" target="_blank" rel="noopener">[link]</a>\n'
+        f'      {title}. <em>{journal}</em>, {year}.<br>\n'
+        f'      {icon_ads}{icon_arxiv}\n'
         f'    </li>'
     )
 
