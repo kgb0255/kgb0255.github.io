@@ -160,15 +160,29 @@ footer {
   font-size: 0.82rem;
 }
 
-/* Directory tree — fixed in left whitespace */
+/* Sidebar layout wrapper — used on research + project pages */
+.sidebar-layout {
+  display: grid;
+  grid-template-columns: 1fr min(var(--max-width), 100%) 1fr;
+  align-items: flex-start;
+}
+
+.sidebar-layout main {
+  grid-column: 2;
+  max-width: none;
+  margin: 0;
+}
+
+/* Directory tree — sticky in left column */
 .dir-tree {
-  position: fixed;
-  left: 24px;
-  top: 160px;
+  position: sticky;
+  top: 24px;
+  justify-self: center;
   width: 160px;
   font-size: 0.82rem;
   color: var(--text-muted);
   line-height: 1.9;
+  margin-top: 48px; /* align with main content top */
 }
 
 .dir-tree .tree-root {
@@ -178,7 +192,9 @@ footer {
   color: var(--text-muted);
   display: block;
   margin-bottom: 4px;
+  text-decoration: none;
 }
+.dir-tree .tree-root:hover { color: var(--accent); text-decoration: underline; }
 
 .dir-tree ul {
   list-style: none;
@@ -212,6 +228,8 @@ footer {
 
 @media (max-width: 1060px) {
   .dir-tree { display: none; }
+  .sidebar-layout { grid-template-columns: 1fr; }
+  .sidebar-layout main { grid-column: 1; }
 }
 
 @media (max-width: 560px) {
