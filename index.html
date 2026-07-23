@@ -29,7 +29,24 @@
 <main style="max-width: 1064px;">
   <img src="assets/photo.jpg" alt="James Kwon" class="profile-photo">
 
-  <h1>Welcome!</h1>
+  <h1 id="greeting"></h1>
+  <script>
+    (function() {
+      var g = sessionStorage.getItem("greeting");
+      if (!g) {
+        var mins = new Date().getHours() * 60 + new Date().getMinutes();
+        var timeBased;
+        if      (mins >= 270  && mins <= 719)  timeBased = "Good morning!";
+        else if (mins >= 720  && mins <= 1050) timeBased = "Good afternoon!";
+        else if (mins >= 1051 && mins <= 1320) timeBased = "Good evening!";
+        else                                   timeBased = "Zzz...";
+        var pool = [timeBased, "Welcome!", "Hello!", "Hello there!", "Hi!"];
+        g = pool[Math.floor(Math.random() * pool.length)];
+        sessionStorage.setItem("greeting", g);
+      }
+      document.getElementById("greeting").textContent = g;
+    })();
+  </script>
 
   <p>
     I am a [your title/role — e.g. student, developer, researcher] at
