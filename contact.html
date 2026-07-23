@@ -42,7 +42,7 @@
   <script>
     const d = new Date(document.lastModified);
     const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    document.getElementById("last-updated").textContent = months[d.getMonth()] + " " + d.getDate();
+    document.getElementById("last-updated").textContent = months[d.getMonth()] + " " + d.getDate() + " " + d.getFullYear();
   </script>
 </footer>
 
