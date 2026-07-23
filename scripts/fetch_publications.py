@@ -53,10 +53,15 @@ for p in papers:
     title = p.get("title", ["Untitled"])[0]
     authors = p.get("author", [])
     formatted = [format_author(a) for a in authors]
-    if len(formatted) > 6:
-        author_str = ", ".join(formatted[:6]) + ", et al."
-    else:
+    kwon_idx = next((i for i, a in enumerate(authors) if a.split(", ")[0] == "Kwon"), None)
+
+    if len(formatted) <= 6:
         author_str = ", ".join(formatted)
+    elif kwon_idx is not None and kwon_idx >= 6:
+        # Kwon would be cut off — show first author + Kwon + et al.
+        author_str = formatted[0] + ", " + formatted[kwon_idx] + ", et al."
+    else:
+        author_str = ", ".join(formatted[:6]) + ", et al."
     year = p.get("year", "")
     journal = p.get("pub", "")
     bibcode = p.get("bibcode", "")
