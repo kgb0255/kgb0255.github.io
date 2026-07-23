@@ -57,30 +57,19 @@ header {
 
 .title-main {
   font-family: var(--serif);
-  font-weight: 700;
-  font-size: 1.7rem;
+  font-weight: 400;
+  font-size: 2.55rem;
   letter-spacing: -0.3px;
   color: var(--accent-dark);
-}
-
-.title-sub {
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  border-left: 1px solid var(--border);
-  padding-left: 10px;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 22px;
+  gap: 26px;
   margin: 0;
   padding: 0;
-  font-size: 0.85rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -100,8 +89,8 @@ main {
   height: 180px;
   border-radius: 4px;
   object-fit: cover;
-  float: right;
-  margin: 0 0 24px 28px;
+  float: left;
+  margin: 0 24px 24px 0;
   background: var(--bg-alt);
 }
 
