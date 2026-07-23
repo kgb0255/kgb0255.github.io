@@ -160,6 +160,60 @@ footer {
   font-size: 0.82rem;
 }
 
+/* Project detail page layout */
+.project-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 70px;
+  align-items: start;
+}
+
+.dir-tree {
+  position: sticky;
+  top: 24px;
+  padding-right: 32px;
+  font-size: 0.85rem;
+  line-height: 1.9;
+}
+
+.dir-tree .tree-root {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--accent-dark);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.dir-tree ul {
+  list-style: none;
+  padding-left: 14px;
+  margin: 0;
+  border-left: 1px solid var(--border);
+}
+
+.dir-tree ul ul {
+  padding-left: 14px;
+}
+
+.dir-tree li { margin: 2px 0; }
+
+.dir-tree a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.dir-tree a:hover { text-decoration: underline; }
+
+.dir-tree .tree-current {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.project-content { min-width: 0; }
+
 @media (max-width: 560px) {
   .header-inner { grid-template-columns: 1fr; gap: 12px; }
   .site-title { justify-self: flex-start; }
