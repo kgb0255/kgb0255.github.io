@@ -231,7 +231,7 @@ footer {
 @media (max-width: 1060px) {
   .dir-tree { display: none; }
   .sidebar-layout { grid-template-columns: 1fr; }
-  .sidebar-layout main { grid-column: 1; }
+  .sidebar-layout main { grid-column: 1; max-width: var(--max-width); margin: 0 auto; }
 }
 
 @media (max-width: 560px) {
