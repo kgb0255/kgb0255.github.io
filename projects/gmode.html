@@ -59,20 +59,28 @@
   </p>
 
   <h2>Related Papers</h2>
-  <ul class="plain">
-    <li>
-      <strong>K. J. Kwon</strong>, H. Yu, T. Venumadhav.
-      Resonance locking: radian-level phase shifts due to nonlinear hydrodynamics of g-modes in merging neutron star binaries.
-      <em>arXiv:2503.11837</em>, 2025.
-      <a href="https://arxiv.org/abs/2503.11837" target="_blank" rel="noopener">[arXiv]</a>
-    </li>
-    <li>
-      <strong>K. J. Kwon</strong>, H. Yu, T. Venumadhav.
-      Resonance Locking of Anharmonic g-Modes in Coalescing Neutron Star Binaries.
-      <em>arXiv:2410.03831</em>, 2024.
-      <a href="https://arxiv.org/abs/2410.03831" target="_blank" rel="noopener">[arXiv]</a>
-    </li>
-  </ul>
+  <ul class="plain" id="related-papers"></ul>
+  <script src="../assets/pub-item.js"></script>
+  <script>
+    renderPublications('related-papers', [
+      {
+        authors: '<strong>K. J. Kwon</strong>, Hang Yu, Tejaswi Venumadhav',
+        title: 'Resonance locking: radian-level phase shifts due to nonlinear hydrodynamics of $g$-modes in merging neutron star binaries',
+        journal: 'arXiv e-prints',
+        year: 2025,
+        ads: 'https://ui.adsabs.harvard.edu/abs/2025arXiv250311837K',
+        arxiv: 'https://arxiv.org/abs/2503.11837'
+      },
+      {
+        authors: '<strong>K. J. Kwon</strong>, Hang Yu, Tejaswi Venumadhav',
+        title: 'Resonance Locking of Anharmonic $g$-Modes in Coalescing Neutron Star Binaries',
+        journal: 'arXiv e-prints',
+        year: 2024,
+        ads: 'https://ui.adsabs.harvard.edu/abs/2024arXiv241003831K',
+        arxiv: 'https://arxiv.org/abs/2410.03831'
+      }
+    ], '../assets/');
+  </script>
 </main>
 </div>
 
