@@ -87,7 +87,9 @@ main {
 
 .profile-photo {
   width: 360px;
-  height: 360px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
   border-radius: 0;
   object-fit: cover;
   float: left;
@@ -235,8 +237,10 @@ footer {
 }
 
 @media (max-width: 560px) {
-  .header-inner { grid-template-columns: 1fr; gap: 12px; }
-  .site-title { justify-self: flex-start; }
+  .header-inner { grid-template-columns: 1fr; gap: 12px; padding: 16px 24px; }
+  .site-title { grid-column: 1; justify-self: flex-start; }
+  nav { grid-column: 1; }
+  nav ul { justify-content: flex-start; flex-wrap: wrap; gap: 8px 16px; font-size: 0.9rem; }
   .profile-photo { float: none; display: block; margin: 0 auto 24px; }
   h1 { font-size: 1.6rem; }
 }
