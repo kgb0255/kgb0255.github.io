@@ -122,7 +122,8 @@ h3 {
   margin: 0 0 6px;
 }
 
-p { margin: 0 0 18px; }
+p { margin: 0 0 18px; text-indent: 1.5em; }
+p.no-indent { text-indent: 0; }
 
 .clear { clear: both; }
 
