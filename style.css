@@ -153,6 +153,29 @@ ul.plain {
 }
 ul.plain li { margin-bottom: 10px; }
 
+/* Figures (paper plots embedded in project pages) */
+figure.figure {
+  margin: 32px 0;
+  text-align: center;
+}
+figure.figure img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+figure.figure figcaption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: left;
+  text-indent: 0;
+  line-height: 1.55;
+  margin-top: 10px;
+}
+figure.figure figcaption strong {
+  color: var(--text);
+}
+
 /* Footer */
 footer {
   border-top: 1px solid var(--border);

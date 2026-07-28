@@ -52,11 +52,100 @@
   </p>
 
   <p>
-    My work models this process, accounting for the mode's nonlinear growth as different modes begin
-    to interact with one another. This is a behavior that is not captured by the standard, simplified
-    treatment. The goal is to understand how this nonlinear regime reshapes the gravitational wave
-    signal, and what this, in turn, can teach us about neutron star composition.
+    To work this out concretely, I model a 1.4&ndash;1.4 M<sub>&#9737;</sub> neutron-star binary built from
+    the SLy4 equation of state (radius &asymp; 13 km), and focus on its longest-wavelength g-mode (radial
+    order <em>n</em> = 1, angular order <em>l</em> = |<em>m</em>| = 2), which has an eigenfrequency of
+    about 95 Hz. The figure below shows this mode's spatial profile: it is oscillatory through most of the
+    star's core but becomes evanescent once it reaches the crust. More importantly, the strength of its
+    nonlinear self-coupling &mdash; the quantity that ultimately controls everything below &mdash; builds
+    up almost entirely in a thin shell just interior to the crust, between about 80&ndash;90% of the
+    stellar radius.
   </p>
+
+  <figure class="figure">
+    <img src="../assets/gmode-eigenfunction.png" alt="Top panel: radial and transverse displacement of the n=1, l=2 g-mode as a function of radius, becoming evanescent past the crust boundary. Bottom panel: the cumulative four-mode self-coupling strength of the g-mode, which rises steeply between r/R of 0.8 and 0.9.">
+    <figcaption>
+      <strong>What the mode looks like.</strong> Top: the g-mode's radial (blue) and transverse (orange)
+      displacement across the star; the dashed line marks the crust boundary, beyond which the mode dies
+      off. Bottom: the accumulated strength of the mode's nonlinear self-coupling, which is negligible
+      through most of the core and then rises by several orders of magnitude in the outer ~20% of the
+      star &mdash; this is the coupling that drives everything that follows.
+    </figcaption>
+  </figure>
+
+  <p>
+    In the standard linear picture, this g-mode would simply be briefly amplified as the tidal forcing
+    sweeps through its resonance (2&Omega; = &omega;<sub>g</sub>) and then fade, leaving little imprint on
+    the signal. What I find instead is that the mode's self-coupling makes its oscillation frequency
+    depend on its own energy, and this creates a feedback loop: as the driving frequency approaches the
+    mode's natural frequency, the mode's growing amplitude pushes its own frequency to keep pace with the
+    driving, rather than letting it sweep past. I quantify this with an effective coupling coefficient
+    &kappa;<sub>eff</sub> and show that the lock only takes hold if |&kappa;<sub>eff</sub>| exceeds a
+    critical value &kappa;<sub>crit</sub> set by the binary's inspiral rate. For this NS model,
+    |&kappa;<sub>eff</sub>| &asymp; 2&times;10<sup>7</sup>, roughly ten times &kappa;<sub>crit</sub>, so the
+    lock initiates comfortably. Crucially, &kappa;<sub>crit</sub> grows much more steeply with mode order
+    than the coupling strength itself, so this condition is satisfied only for the very lowest-order
+    (<em>n</em> = 1) g-mode &mdash; the <em>n</em> = 2, 3, 4 modes fall short by one to several orders of
+    magnitude and never lock.
+  </p>
+
+  <figure class="figure">
+    <img src="../assets/gmode-lowest-order.png" alt="Log-log plot comparing the effective coupling coefficient kappa_eff against the critical locking threshold kappa_crit for g-modes of radial order 1 through 4. Only the n=1 mode clears the threshold.">
+    <figcaption>
+      <strong>Why only the lowest-order mode locks.</strong> The effective coupling
+      |&kappa;<sub>eff</sub>| (blue) against the critical threshold |&kappa;<sub>crit</sub>| (orange) for
+      the four lowest-order g-modes. Because &kappa;<sub>crit</sub> falls off faster with mode frequency
+      than &kappa;<sub>eff</sub> does, only the <em>n</em> = 1 mode (leftmost point) clears the bar needed
+      to lock &mdash; the higher-order modes stay well below it.
+    </figcaption>
+  </figure>
+
+  <p>
+    A second coefficient, &gamma;<sub>eff</sub>, governs whether the lock can be sustained once it starts:
+    it captures an energy exchange with the star's fundamental mode that offsets the damping the mode
+    would otherwise feel as the binary inspirals. For the <em>n</em> = 1 mode, I find
+    &gamma;<sub>eff</sub> &asymp; 5&gamma;<sub>crit</sub>, comfortably enough to keep the lock alive through
+    nearly the entire merger. The result is a mode amplitude that, instead of resonating briefly and
+    decaying, grows monotonically and coherently with the orbit &mdash; its real part tracking the orbital
+    frequency &Omega; and its imaginary part tracking &Omega;<sup>5/3</sup>, until the two become
+    comparable near 1 kHz and the lock finally starts to break.
+  </p>
+
+  <figure class="figure">
+    <img src="../assets/gmode-amplitude-growth.png" alt="Log-log plot of the g-mode amplitude versus gravitational-wave frequency, showing the amplitude tracking Omega at low frequency and the imaginary part catching up to scale as Omega to the 5/3 power near 1 kHz.">
+    <figcaption>
+      <strong>The locked mode's amplitude through the inspiral.</strong> The g-mode's amplitude (black),
+      split into its real (orange) and imaginary (blue) parts, computed by numerically integrating the
+      full inspiral. Rather than peaking and fading at resonance, the mode grows steadily in step with the
+      orbit all the way to <em>f</em><sub>gw</sub> &asymp; 1 kHz.
+    </figcaption>
+  </figure>
+
+  <p>
+    Because the locked mode keeps growing with the orbit instead of fading after a brief resonance, it
+    leaves a much larger imprint on the gravitational-wave signal than linear theory would predict: an
+    extra phase shift of about 3 radians at a GW frequency of 1.05 kHz, roughly an order of magnitude
+    beyond the standard estimate, which I confirm both numerically and with an independent analytical
+    calculation. I also checked one natural way the lock could be cut short &mdash; viscous heating where
+    the mode's motion shears against the crust &mdash; and found it to be self-limiting: at the densities
+    and energies involved, the dissipated heat drives the crust to around 10<sup>10</sup> K, which
+    suppresses the very viscosity responsible for the damping, so the lock survives. Since the size of this
+    phase shift is set by the g-mode's frequency &mdash; which is itself set by the star's compositional
+    (Brunt-V&auml;is&auml;l&auml;) profile &mdash; a measurement of it in future gravitational-wave data
+    would offer a direct probe of neutron-star stratification, one that has so far been overlooked because
+    g-modes couple only weakly to the tidal field.
+  </p>
+
+  <figure class="figure">
+    <img src="../assets/gmode-phase-shift.png" alt="Plot of gravitational-wave dephasing versus frequency, comparing linear f-modes, nonlinear f-modes, and nonlinear f- and g-modes, showing the locked g-mode contributing an extra phase shift that grows to about 3 radians by 1050 Hz, matching an independent analytical estimate.">
+    <figcaption>
+      <strong>The payoff: a measurable phase shift.</strong> Top: the gravitational-wave dephasing
+      &Delta;&Psi; for a linearly-driven f-mode alone (orange), with nonlinear f-modes added (black), and
+      with the resonantly locked g-mode included (blue). Bottom: the g-mode's contribution isolated (blue),
+      alongside an independent analytical estimate (red dashed) &mdash; the two agree closely, and the
+      locked g-mode alone accounts for roughly 3 radians of phase by <em>f</em><sub>gw</sub> = 1050 Hz.
+    </figcaption>
+  </figure>
 
   <h2>Related Papers</h2>
   <ul class="plain" id="related-papers"></ul>
