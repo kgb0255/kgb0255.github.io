@@ -78,6 +78,21 @@ nav { grid-column: 3; }
 nav a { color: var(--accent); font-weight: 600; }
 nav a:hover { color: var(--accent-dark); text-decoration: none; }
 
+/* Placeholder slot reserved for a future signature/logo mark; invisible but clickable for now.
+   Sits in the empty right margin of the header grid, outside the nav's own flex flow, so it
+   never touches the position of the site title or the visible nav links. */
+.header-inner { position: relative; }
+.nav-signature {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  display: inline-block;
+  width: 28px;
+  height: 1em;
+  opacity: 0;
+}
+
 /* Main */
 main {
   max-width: var(--max-width);
@@ -265,6 +280,7 @@ footer {
   .site-title { grid-column: 1; justify-self: flex-start; }
   nav { grid-column: 1; }
   nav ul { justify-content: flex-start; flex-wrap: wrap; gap: 8px 16px; font-size: 0.9rem; }
+  .nav-signature { display: none; }
   .profile-photo { float: none; display: block; margin: 0 auto 24px; }
   h1 { font-size: 1.6rem; }
 }
