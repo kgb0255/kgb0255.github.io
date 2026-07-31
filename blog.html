@@ -34,36 +34,15 @@
 <main>
   <h1>Blog</h1>
 
-  <div class="card-list">
-    <div class="card">
-      <details open>
-        <summary>
-          <h3>Welcome</h3>
-          <p class="meta no-indent">July 30, 2026</p>
-        </summary>
-        <p>
-          This is where I'll be jotting down looser, less formal notes &mdash; things I'm thinking
-          about, small updates, or ideas that don't quite fit on the research page.
-        </p>
-        <p class="no-indent"><a href="posts/welcome.html">Read more &rarr;</a></p>
-      </details>
-    </div>
-
-    <!--
-    <div class="card">
-      <details>
-        <summary>
-          <h3>Post Title</h3>
-          <p class="meta no-indent">Month Day, Year</p>
-        </summary>
-        <p>
-          Teaser paragraph for the post.
-          <br><a href="posts/file-name.html">Read more →</a>
-        </p>
-      </details>
-    </div>
-    -->
-  </div>
+  <div class="card-list" id="post-cards"></div>
+  <script src="assets/post-card.js"></script>
+  <script>
+    renderPostCards('post-cards', [
+      { href: 'posts/21-lessons.html', category: 'Books', date: 'July 30, 2026' },
+      { href: 'posts/welcome.html', date: 'July 30, 2026' }
+      // { href: 'posts/file-name.html', category: 'Books', date: 'Month Day, Year' }
+    ], 0);
+  </script>
 </main>
 </div>
 

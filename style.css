@@ -162,6 +162,21 @@ p.no-indent { text-indent: 0; }
   letter-spacing: 0.04em;
 }
 
+.tag-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  padding: 1px 7px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.card details > summary h3 { display: inline-block; }
+
 ul.plain {
   padding-left: 20px;
   margin: 0 0 18px;
@@ -189,6 +204,35 @@ figure.figure figcaption {
 }
 figure.figure figcaption strong {
   color: var(--text);
+}
+
+.book-cover {
+  display: block;
+  max-width: 220px;
+  height: auto;
+  margin: 0 auto 32px;
+  border: 1px solid var(--border);
+}
+
+/* Blockquotes (pulled quotes on book/notes posts) */
+blockquote {
+  margin: 36px auto;
+  max-width: 85%;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--text);
+  padding: 6px 0;
+}
+blockquote::before,
+blockquote::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  margin: 10px auto;
 }
 
 /* Footer */
@@ -256,6 +300,17 @@ footer {
   color: var(--text);
   font-weight: 600;
 }
+
+/* Collapsible category groups within the dir-tree (blog sidebar) */
+.dir-tree details > summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+}
+.dir-tree details > summary::-webkit-details-marker { display: none; }
+.dir-tree details > summary::before { content: "▶  "; font-size: 0.7em; vertical-align: middle; }
+.dir-tree details[open] > summary::before { content: "▼  "; }
+.dir-tree details ul { margin-top: 2px; }
 
 /* Card title dropdowns */
 .card details > summary {
