@@ -9,23 +9,8 @@
 </head>
 <body>
 
-<header>
-  <div class="header-bar"></div>
-  <div class="header-inner">
-    <a href="index.html" class="site-title">
-      <span class="title-main">K. J. Kwon</span>
-    </a>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="cv.html">CV</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  <a href="blog.html" class="nav-signature" aria-label="Blog"> </a>
-  </div>
-</header>
+<div id="site-header"></div>
+<script src="assets/header.js"></script>
 
 <main>
   <h1>CV</h1>
@@ -69,14 +54,8 @@
   </ul>
 </main>
 
-<footer>
-  &copy; 2026 James Kwon | Last updated on <span id="last-updated"></span>
-  <script>
-    const d = new Date(document.lastModified);
-    const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    document.getElementById("last-updated").textContent = months[d.getMonth()] + " " + d.getDate() + " " + d.getFullYear();
-  </script>
-</footer>
+<div id="site-footer"></div>
+<script src="assets/footer.js"></script>
 
 </body>
 </html>
