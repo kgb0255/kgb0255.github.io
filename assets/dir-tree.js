@@ -3,15 +3,17 @@
 // item's own page.
 //
 // Usage: renderDirTree({ rootLabel, rootHref, items, basePath, current })
-//   items:    [{ slug, category?, date? }, ...] (e.g. window.SITE_POSTS)
+//   items:    [{ slug, title?, category?, date? }, ...] (e.g. window.SITE_POSTS)
 //   basePath: path prefix to each item's page relative to the current page
 //             (e.g. 'posts/' from blog.html, '' from within posts/*.html)
 //   current:  slug of the page currently being viewed, if any (omit on the
 //             collection index page itself)
 //
-// Item labels are never hand-typed: each item's page is fetched and its
-// real <h1> is used as the label, so a title only ever needs to be written
-// once, in the item's own page.
+// Item labels default to the item's real <h1> (fetched from its page), so a
+// title only has to be written once. If an item's full title is too long to
+// read comfortably in the narrow sidebar, give it a short `title` override
+// in its data entry (posts-data.js / projects-data.js) — that skips the
+// fetch and is used as the sidebar label directly.
 function renderDirTree(opts) {
   var aside = document.querySelector('.dir-tree');
   if (!aside) return;
@@ -24,6 +26,14 @@ function renderDirTree(opts) {
 
   Promise.all(items.map(function (item) {
     var href = basePath + item.slug + '.html';
+    if (item.title) {
+      return Promise.resolve({
+        slug: item.slug,
+        href: href,
+        category: item.category,
+        label: item.title
+      });
+    }
     return fetch(href)
       .then(function (res) { return res.text(); })
       .then(function (html) {
