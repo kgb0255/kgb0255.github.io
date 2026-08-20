@@ -26,6 +26,10 @@ a:hover { text-decoration: underline; }
 
 /* Header */
 header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
   border-bottom: 1px solid var(--border);
   padding: 0;
   margin-bottom: 48px;
@@ -261,7 +265,7 @@ footer {
 /* Directory tree — sticky in left column */
 .dir-tree {
   position: sticky;
-  top: 24px;
+  top: calc(var(--header-height, 100px) + 24px);
   justify-self: center;
   width: 160px;
   font-size: 0.82rem;

@@ -25,4 +25,13 @@
         '<a href="' + base + 'blog.html" class="nav-signature" aria-label="Blog"> </a>' +
       '</div>' +
     '</header>';
+
+  var setHeaderHeightVar = function () {
+    var header = document.querySelector('header');
+    if (header) {
+      document.documentElement.style.setProperty('--header-height', header.offsetHeight + 'px');
+    }
+  };
+  setHeaderHeightVar();
+  window.addEventListener('resize', setHeaderHeightVar);
 })();
