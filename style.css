@@ -187,6 +187,31 @@ ul.plain {
 }
 ul.plain li { margin-bottom: 10px; }
 
+/* CV entry lists — description on the left, year flush right */
+ul.cv-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 18px;
+}
+ul.cv-list > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  margin-bottom: 14px;
+}
+ul.cv-list > li > div { min-width: 0; }
+ul.cv-list .cv-year {
+  flex: 0 0 auto;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+ul.cv-list .cv-note {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
 /* Figures (paper plots embedded in project pages) */
 figure.figure {
   margin: 32px 0;
@@ -335,6 +360,8 @@ footer {
 }
 
 @media (max-width: 560px) {
+  ul.cv-list > li { flex-wrap: wrap; gap: 2px 24px; }
+  ul.cv-list .cv-year { flex-basis: 100%; }
   .header-inner { grid-template-columns: 1fr; gap: 12px; padding: 16px 24px; }
   .site-title { grid-column: 1; justify-self: flex-start; }
   nav { grid-column: 1; }
