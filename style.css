@@ -292,11 +292,16 @@ footer {
   position: sticky;
   top: calc(var(--header-height, 100px) + 24px);
   justify-self: center;
-  width: 160px;
+  width: 220px;
   font-size: 0.82rem;
   color: var(--text-muted);
   line-height: 1.9;
   margin-top: 48px; /* align with main content top */
+}
+
+.dir-tree li a,
+.dir-tree li.tree-current {
+  white-space: nowrap;
 }
 
 .dir-tree .tree-root {
