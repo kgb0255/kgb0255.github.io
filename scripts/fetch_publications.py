@@ -35,6 +35,12 @@ r = requests.post(
 r.raise_for_status()
 papers = r.json()["response"]["docs"]
 
+# Manual journal info for papers ADS still lists as arXiv preprints. Applied only
+# while ADS's own `pub` is an arXiv e-print, so it drops out once ADS catches up.
+JOURNAL_OVERRIDES = {
+    "2026arXiv260508569R": "Physical Review D 114, 064048",
+}
+
 def format_author(name):
     """Convert 'Last, First' to 'First Last', bold if last name is Kwon."""
     if ", " in name:
@@ -65,6 +71,8 @@ for p in papers:
     year = p.get("year", "")
     journal = p.get("pub", "")
     bibcode = p.get("bibcode", "")
+    if "arXiv" in journal and bibcode in JOURNAL_OVERRIDES:
+        journal = JOURNAL_OVERRIDES[bibcode]
     identifiers = p.get("identifier", [])
 
     ads_link = f"https://ui.adsabs.harvard.edu/abs/{bibcode}"
