@@ -40,6 +40,10 @@ papers = r.json()["response"]["docs"]
 JOURNAL_OVERRIDES = {
     "2026arXiv260508569R": "Physical Review D 114, 064048",
 }
+# The published title differs from the arXiv title for this paper.
+TITLE_OVERRIDES = {
+    "2026arXiv260508569R": "Relativistic mode sums for neutron-star tidal response",
+}
 
 def format_author(name):
     """Convert 'Last, First' to 'First Last', bold if last name is Kwon."""
@@ -73,6 +77,7 @@ for p in papers:
     bibcode = p.get("bibcode", "")
     if "arXiv" in journal and bibcode in JOURNAL_OVERRIDES:
         journal = JOURNAL_OVERRIDES[bibcode]
+        title = TITLE_OVERRIDES.get(bibcode, title)
     identifiers = p.get("identifier", [])
 
     ads_link = f"https://ui.adsabs.harvard.edu/abs/{bibcode}"
