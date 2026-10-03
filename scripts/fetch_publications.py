@@ -42,7 +42,7 @@ JOURNAL_OVERRIDES = {
 }
 # The published title differs from the arXiv title for this paper.
 TITLE_OVERRIDES = {
-    "2026arXiv260508569R": "Relativistic mode sums for neutron-star tidal response",
+    "2026arXiv260508569R": "Relativistic Mode Sums for Neutron-Star Tidal Response",
 }
 
 def format_author(name):
