@@ -3,5 +3,5 @@
 // too long to read comfortably at sidebar width. Omit it to use the <h1> as-is.
 window.SITE_PROJECTS = [
   { slug: 'gmode', title: 'Neutron-Star Stratification' },
-  { slug: 'triplet', title: 'GR Nonlinear Oscillations' }
+  { slug: 'triplet', title: 'GR Nonlinear Perturbation' }
 ];
