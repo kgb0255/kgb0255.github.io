@@ -16,8 +16,9 @@
 //                        so titles are the most stable key). `label` is the short name on the
 //                        graph; `topic` is a subset id; `project` (optional) hangs the paper under
 //                        that project instead of directly under the subset.
-// To list unpublished work: add to GRAPH_PLANNED (shown as a dashed node, no ADS entry needed).
 //                        `also: ['ndt']` adds a dashed link to another subset (drawn beneath everything).
+// To list unpublished work: add to GRAPH_PLANNED (shown as a dashed node, no ADS entry needed).
+//                        `also` works here too.
 // Papers with no GRAPH_PAPERS entry still appear, unlinked, so nothing is silently dropped.
 
 window.GRAPH_AREAS = [
@@ -48,6 +49,7 @@ window.GRAPH_PAPERS = [
   // Neutron-Star Tides / General Relativistic Tides
   { match: ['relativistic and dynamical love'], label: 'Love numbers 2026',       topic: 'grt' },
   { match: ['relativistic mode sums'],          label: 'Mode sums 2026',          topic: 'grt' },
+  { match: ['nonlinear perturbations of relativistic'], label: 'Nonlinear perturbation 2026', topic: 'grt', project: 'triplet', also: ['ndt'] },
 
   // AI & Astrophysics / Strong Lensing Detection
   { match: ['strong gravitational lenses'],     label: 'Lenses in DR9 2024',      topic: 'lensing' },
@@ -67,6 +69,5 @@ window.GRAPH_PAPERS = [
 ];
 
 window.GRAPH_PLANNED = [
-  { label: 'Spectral Simulation (in prep)',    topic: 'ndt' },
-  { label: 'Nonlinear Perturbation (in prep)', topic: 'grt', project: 'triplet', also: ['ndt'] }
+  { label: 'Spectral Simulation (in prep)',    topic: 'ndt' }
 ];

@@ -68,6 +68,7 @@
       lead: lead,
       area: topic ? topic.area : null,
       color: topic ? topic.color : '#888',
+      also: topic ? (rule.also || []).map(function (t) { return 'topic:' + t; }) : [],
       html: li.innerHTML
     }, topic ? parentOf(rule) : null);
   });
