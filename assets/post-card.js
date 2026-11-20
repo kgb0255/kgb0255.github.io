@@ -1,4 +1,4 @@
-async function renderPostCards(containerId, posts, defaultOpenIndex) {
+async function renderPostCards(containerId, posts) {
   var container = document.getElementById(containerId);
   if (!container) return;
 
@@ -35,21 +35,20 @@ async function renderPostCards(containerId, posts, defaultOpenIndex) {
       });
   }));
 
-  container.innerHTML = cards.map(function (post, i) {
-    var badge = post.category ? '<span class="tag-badge">' + post.category + '</span>' : '';
-    var openAttr = i === defaultOpenIndex ? ' open' : '';
+  container.innerHTML = cards.map(function (post) {
+    var meta = post.date + (post.category ? ' &middot; ' + post.category : '');
+    var thumb = post.thumb
+      ? '<a class="post-card-thumb" href="' + post.href + '" tabindex="-1" aria-hidden="true">' +
+          '<img src="' + post.thumb + '" alt="" height="99" loading="lazy"></a>'
+      : '';
     return (
-      '<div class="card">' +
-        '<details' + openAttr + '>' +
-          '<summary' + (post.thumb ? ' class="has-thumb"' : '') + '>' +
-            '<div class="card-head"><h3>' + post.title + '</h3>' + badge +
-            '<p class="meta no-indent">' + post.date + '</p></div>' +
-            (post.thumb ? '<img class="card-thumb" src="' + post.thumb + '" alt="" height="99" loading="lazy">' : '') +
-          '</summary>' +
-          '<p>' + post.excerpt + '</p>' +
-          '<p class="no-indent"><a href="' + post.href + '">Read more &rarr;</a></p>' +
-        '</details>' +
-      '</div>'
+      '<article class="card post-card">' +
+        '<h3><a href="' + post.href + '">' + post.title + '</a></h3>' +
+        '<p class="meta no-indent">' + meta + '</p>' +
+        '<div class="post-card-body">' + thumb +
+          '<p class="no-indent">' + post.excerpt + '</p>' +
+        '</div>' +
+      '</article>'
     );
   }).join('');
 }

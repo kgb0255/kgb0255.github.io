@@ -418,16 +418,26 @@ footer {
   display: block;
 }
 .card details > summary::-webkit-details-marker { display: none; }
-.card-thumb {
+
+/* Blog index entries */
+.post-card h3 { margin-bottom: 4px; }
+.post-card h3 a { color: var(--text); }
+.post-card h3 a:hover { color: var(--accent); text-decoration: none; }
+.post-card .meta { margin-bottom: 12px; }
+.post-card-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+.post-card-body p { margin: 0; min-width: 0; }
+.post-card-thumb { flex: none; }
+.post-card-thumb img {
   display: block;
   width: auto;
-  max-width: 100%;
+  max-width: 132px;
   height: 99px;
-  margin-top: 10px;
   object-fit: cover;
 }
-.card details[open] > summary.has-thumb { margin-bottom: 14px; }
-.card details[open] > summary.has-thumb h3 { margin-bottom: 0; }
 .card details > summary h3 { margin-bottom: 0; }
 .card details[open] > summary h3 { margin-bottom: 14px; }
 .card details > summary h3::before { content: "▶  "; font-size: 0.65em; vertical-align: middle; }
@@ -527,5 +537,6 @@ ol.footnotes .fn-num::after { content: "."; }
 sup.fn-ref a, ol.footnotes li { scroll-margin-top: 90px; }
 
 @media (max-width: 560px) {
-  .card-thumb { height: 84px; }
+  .post-card-thumb img { max-width: 96px; height: 72px; }
+  .post-card-body { gap: 14px; }
 }
