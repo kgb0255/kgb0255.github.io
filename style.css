@@ -231,6 +231,20 @@ figure.figure figcaption {
   line-height: 1.55;
   margin-top: 10px;
 }
+/* Photos in blog posts: short caption centred under the picture.
+   Use <figure class="figure photo">. */
+figure.figure.photo figcaption { text-align: center; }
+/* Two photos side by side under one caption: wrap the two <img>s in
+   <div class="photo-pair">. They stack on narrow screens. */
+.photo-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.photo-pair img { width: 100%; display: block; }
+@media (max-width: 560px) {
+  .photo-pair { grid-template-columns: 1fr; }
+}
 figure.figure figcaption strong {
   color: var(--text);
 }
