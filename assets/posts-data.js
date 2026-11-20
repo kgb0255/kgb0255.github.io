@@ -7,7 +7,7 @@
 // name inside assets/ (e.g. thumb: 'kicc-visit.jpg'). Omit it to use the first photo in
 // the post; posts without photos get no thumbnail. `thumb: false` hides it.
 window.SITE_POSTS = [
-  { slug: 'job_talk', title: 'Job Talk Circuit', category: 'Travel Logs', date: 'November 19, 2026' },
+  { slug: 'job_talk', title: 'Job Talk Circuit', category: 'Travel Logs', date: 'November 19, 2026', thumb: 'kicc-visit.jpg' },
   { slug: '21-lessons', title: '21 Lessons', category: 'Books', date: 'July 30, 2026' },
   { slug: 'welcome', date: 'July 30, 2026' }
 ];
