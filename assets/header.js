@@ -19,10 +19,10 @@
             '<li><a href="' + base + 'index.html">Home</a></li>' +
             '<li><a href="' + base + 'research.html">Research</a></li>' +
             '<li><a href="' + base + 'cv.html">CV</a></li>' +
+            '<li><a href="' + base + 'blog.html">Blog</a></li>' +
             '<li><a href="' + base + 'contact.html">Contact</a></li>' +
           '</ul>' +
         '</nav>' +
-        '<a href="' + base + 'blog.html" class="nav-signature" aria-label="Blog"> </a>' +
       '</div>' +
     '</header>';
 
