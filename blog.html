@@ -27,7 +27,7 @@
   <script src="assets/post-card.js"></script>
   <script>
     renderPostCards('post-cards', SITE_POSTS.map(function (p) {
-      return { href: 'posts/' + p.slug + '.html', category: p.category, date: p.date };
+      return { href: 'posts/' + p.slug + '.html', category: p.category, date: p.date, thumb: p.thumb };
     }), 0);
   </script>
 </main>

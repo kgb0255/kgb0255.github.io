@@ -13,7 +13,19 @@ async function renderPostCards(containerId, posts, defaultOpenIndex) {
         if (excerpt.length > 180) {
           excerpt = excerpt.slice(0, 180).replace(/\s+\S*$/, '') + '…';
         }
+        // Thumbnail: the post's `thumb` from posts-data.js if given, otherwise the
+        // first photo in the post. `thumb: false` turns it off.
+        var thumb = '';
+        if (p.thumb) {
+          thumb = new URL(p.thumb, new URL('assets/', document.baseURI)).href;
+        } else if (p.thumb !== false) {
+          var firstImg = doc.querySelector('main img');
+          if (firstImg && firstImg.getAttribute('src')) {
+            thumb = new URL(firstImg.getAttribute('src'), new URL(p.href, document.baseURI)).href;
+          }
+        }
         return {
+          thumb: thumb,
           href: p.href,
           category: p.category,
           date: p.date,
@@ -29,8 +41,11 @@ async function renderPostCards(containerId, posts, defaultOpenIndex) {
     return (
       '<div class="card">' +
         '<details' + openAttr + '>' +
-          '<summary><h3>' + post.title + '</h3>' + badge +
-          '<p class="meta no-indent">' + post.date + '</p></summary>' +
+          '<summary' + (post.thumb ? ' class="has-thumb"' : '') + '>' +
+            '<div class="card-head"><h3>' + post.title + '</h3>' + badge +
+            '<p class="meta no-indent">' + post.date + '</p></div>' +
+            (post.thumb ? '<img class="card-thumb" src="' + post.thumb + '" alt="" loading="lazy">' : '') +
+          '</summary>' +
           '<p>' + post.excerpt + '</p>' +
           '<p class="no-indent"><a href="' + post.href + '">Read more &rarr;</a></p>' +
         '</details>' +
