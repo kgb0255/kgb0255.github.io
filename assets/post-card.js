@@ -44,7 +44,7 @@ async function renderPostCards(containerId, posts, defaultOpenIndex) {
           '<summary' + (post.thumb ? ' class="has-thumb"' : '') + '>' +
             '<div class="card-head"><h3>' + post.title + '</h3>' + badge +
             '<p class="meta no-indent">' + post.date + '</p></div>' +
-            (post.thumb ? '<img class="card-thumb" src="' + post.thumb + '" alt="" loading="lazy">' : '') +
+            (post.thumb ? '<img class="card-thumb" src="' + post.thumb + '" alt="" height="99" loading="lazy">' : '') +
           '</summary>' +
           '<p>' + post.excerpt + '</p>' +
           '<p class="no-indent"><a href="' + post.href + '">Read more &rarr;</a></p>' +
